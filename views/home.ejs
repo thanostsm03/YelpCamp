@@ -11,32 +11,29 @@
 </head>
 
 <body class="d-flex text-center text-white bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-            <div class="d-flex w-100 justify-content-between aling-items-center">
-                <h3 class="mb-0">YelpCamp</h3>
-
-                <nav class="nav">
-                    <a href="#" class="nav-link active" aria-current="page">Home</a>
-                    <a href="/campgrounds" class="nav-link">Campgrounds</a>
-                    <% if(!currentUser) {%>
-                        <a href="/login" class="nav-link">Login</a>
-                        <a href="/register" class="nav-link">Register</a>
-                        <% }else{ %>
-                            <a href="/logout" class="nav-link">Logout</a>
-                            <% } %>
-                </nav>
+    <div class="cover-container d-flex w-100 h-100 p-4 p-md-3 mx-auto flex-column">
+        <header class="mb-4 mb-md-auto">
+            <div class="text-center mb-3">
+                <h3 class="mb-0 fs-4 fs-md-3">YelpCamp</h3>
             </div>
+            <nav class="nav flex-wrap justify-content-center">
+                <a href="#" class="nav-link active px-2 py-1" aria-current="page">Home</a>
+                <a href="/campgrounds" class="nav-link px-2 py-1">Campgrounds</a>
+                <% if(!currentUser) {%>
+                    <a href="/login" class="nav-link px-2 py-1">Login</a>
+                    <a href="/register" class="nav-link px-2 py-1">Register</a>
+                    <% }else{ %>
+                        <a href="/logout" class="nav-link px-2 py-1">Logout</a>
+                        <% } %>
+            </nav>
         </header>
-        <main class="px-3">
-            <h1>YelpCamp</h1>
-            <p class="lead">Welcome to YelpCamp!<br>Jump right in and explore our many campgrounds.Feel free to share
-                some of your own and comment on others!</p>
-            <a href="/campgrounds" class="btn btn-large btn-secondary font-weight-bold bg-white">View
-                Campgrounds</a>
+        <main class="px-3 py-4 py-md-0 d-flex flex-column justify-content-center align-items-center flex-grow-1">
+            <h1 class="display-5 display-md-1 mb-4">YelpCamp</h1>
+            <p class="lead fs-6 fs-md-4 mb-4 lh-base">Welcome to YelpCamp!<br class="d-none d-md-block"><span class="d-block d-md-inline mt-2 mt-md-0">Jump right in and explore our many campgrounds.</span><br class="d-none d-md-block"><span class="d-block d-md-inline mt-2 mt-md-0">Feel free to share some of your own and comment on others!</span></p>
+            <a href="/campgrounds" class="btn btn-outline-light btn-lg px-4 py-2 fw-bold rounded-pill shadow-lg">View Campgrounds</a>
         </main>
-        <footer class="mt-auto text-white-50">
-            <p>&copy; 2026</p>
+        <footer class="mt-auto text-white-50 pt-3">
+            <p class="mb-0">&copy; 2026</p>
         </footer>
     </div>
 

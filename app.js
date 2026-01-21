@@ -163,6 +163,6 @@ app.use((err, req, res, next) => { //Error Handler
     res.status(statusCode).render("error", { err });
 })
 
-app.listen(port, () => { //Listening
+app.listen(process.env.PORT, () => { //Listening
     console.log(`Serving on port ${port}`);
 })

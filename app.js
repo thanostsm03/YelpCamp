@@ -65,13 +65,14 @@ const sessionConfig = {
     name: "state",
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: new MongoStore({
-        mongoUrl: dbUrl
+        mongoUrl: dbUrl,
+        touchAfter: 24 * 3600 // lazy session update
     }),
     cookie: {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: false, // Set to false for now to test
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }

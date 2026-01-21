@@ -164,5 +164,4 @@ app.use((err, req, res, next) => { //Error Handler
 })
 
 app.listen(process.env.PORT, () => { //Listening
-    console.log(`Serving on port ${port}`);
 })

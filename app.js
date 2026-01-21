@@ -38,14 +38,18 @@ const { MongoStore } = require("connect-mongo");
 
 // Express App Configuration
 const app = express();
+const port = process.env.PORT || 3000;
 app.set("query parser", "extended");
 app.engine("ejs", engine);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // Database Connection
-const dbUrl = process.env.DB_URL
-mongoose.connect(dbUrl);
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/yelp-camp";
+mongoose.connect(dbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -70,7 +74,7 @@ const sessionConfig = {
     }),
     cookie: {
         httpOnly: true,
-        secure: true,
+        secure: process.env.NODE_ENV === "production",
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
@@ -163,5 +167,6 @@ app.use((err, req, res, next) => { //Error Handler
     res.status(statusCode).render("error", { err });
 })
 
-app.listen(process.env.PORT, () => { //Listening
+app.listen(port, () => { //Listening
+    console.log(`Serving on port ${port}`);
 })

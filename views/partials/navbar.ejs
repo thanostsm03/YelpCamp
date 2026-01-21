@@ -1,0 +1,47 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold fs-3" href="/">
+            <i class="fas fa-campground me-2 text-success"></i>YelpCamp
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/">
+                        <i class="fas fa-home me-1"></i>Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/campgrounds">
+                        <i class="fas fa-mountain me-1"></i>Campgrounds
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/campgrounds/new">
+                        <i class="fas fa-plus me-1"></i>New Campground
+                    </a>
+                </li>
+            </ul>
+            <div class="navbar-nav">
+                <%if(!currentUser){%>
+                <a href="/login" class="nav-link fw-semibold">
+                    <i class="fas fa-sign-in-alt me-1"></i>Login
+                </a>
+                <a href="/register" class="nav-link fw-semibold">
+                    <i class="fas fa-user-plus me-1"></i>Register
+                </a>
+                <%}else{%>
+                <span class="navbar-text me-3 d-none d-sm-block">
+                    <i class="fas fa-user me-1"></i>Welcome, <strong><%=currentUser.username%></strong>
+                </span>
+                <a href="/logout" class="nav-link fw-semibold">
+                    <i class="fas fa-sign-out-alt me-1"></i>Logout
+                </a>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</nav>
